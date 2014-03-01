@@ -16,5 +16,12 @@ namespace RssReader
         {
             InitializeComponent();
         }
+
+        private void bt_go_Click(object sender, EventArgs e)
+        {
+            RSSReader reader = new RSSReader();
+            if (reader.GetItems(tb_url.Text) && reader.GenerateHtml())
+                Browser.Navigate(Environment.CurrentDirectory + "\\last_articles.html");
+        }
     }
 }

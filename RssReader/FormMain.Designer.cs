@@ -37,16 +37,17 @@
             // 
             // bt_go
             // 
-            this.bt_go.Location = new System.Drawing.Point(215, 12);
+            this.bt_go.Location = new System.Drawing.Point(712, 12);
             this.bt_go.Name = "bt_go";
             this.bt_go.Size = new System.Drawing.Size(121, 28);
             this.bt_go.TabIndex = 1;
             this.bt_go.Text = "button1";
             this.bt_go.UseVisualStyleBackColor = true;
+            this.bt_go.Click += new System.EventHandler(this.bt_go_Click);
             // 
             // tb_url
             // 
-            this.tb_url.Location = new System.Drawing.Point(23, 14);
+            this.tb_url.Location = new System.Drawing.Point(532, 17);
             this.tb_url.Name = "tb_url";
             this.tb_url.Size = new System.Drawing.Size(161, 20);
             this.tb_url.TabIndex = 2;
@@ -56,7 +57,7 @@
             this.panel1.Controls.Add(this.Browser);
             this.panel1.Location = new System.Drawing.Point(7, 52);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(342, 276);
+            this.panel1.Size = new System.Drawing.Size(845, 327);
             this.panel1.TabIndex = 3;
             // 
             // Browser
@@ -65,14 +66,14 @@
             this.Browser.Location = new System.Drawing.Point(0, 0);
             this.Browser.MinimumSize = new System.Drawing.Size(20, 20);
             this.Browser.Name = "Browser";
-            this.Browser.Size = new System.Drawing.Size(342, 276);
+            this.Browser.Size = new System.Drawing.Size(845, 327);
             this.Browser.TabIndex = 0;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(362, 350);
+            this.ClientSize = new System.Drawing.Size(855, 384);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tb_url);
             this.Controls.Add(this.bt_go);

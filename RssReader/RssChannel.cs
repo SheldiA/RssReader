@@ -11,11 +11,13 @@ namespace RssReader
         public string title;
         public string description;
         public string link;
+        public string copyright;
         public RssChannel()
         {
             title = "";
             description = "";
             link = "";
+            copyright = "";
         }
     }
 }
