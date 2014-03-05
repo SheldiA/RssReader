@@ -41,7 +41,7 @@
             this.bt_go.Name = "bt_go";
             this.bt_go.Size = new System.Drawing.Size(121, 28);
             this.bt_go.TabIndex = 1;
-            this.bt_go.Text = "button1";
+            this.bt_go.Text = "Load";
             this.bt_go.UseVisualStyleBackColor = true;
             this.bt_go.Click += new System.EventHandler(this.bt_go_Click);
             // 
@@ -51,6 +51,7 @@
             this.tb_url.Name = "tb_url";
             this.tb_url.Size = new System.Drawing.Size(161, 20);
             this.tb_url.TabIndex = 2;
+            this.tb_url.Text = "http://tech.onliner.by/feed";
             // 
             // panel1
             // 
@@ -78,7 +79,7 @@
             this.Controls.Add(this.tb_url);
             this.Controls.Add(this.bt_go);
             this.Name = "FormMain";
-            this.Text = "Form1";
+            this.Text = "RssReader";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

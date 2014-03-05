@@ -11,10 +11,12 @@ namespace RssReader
     class RSSReader
     {
         private RssChannel rssChannel;
+        private ImageOfChanel imageChanel;
         private RssItem[] articles;
         public RSSReader()
         {
             rssChannel = new RssChannel();
+            imageChanel = new ImageOfChanel();
 
         }
 
@@ -48,8 +50,26 @@ namespace RssReader
                             case "copyright":
                                 rssChannel.copyright = channel_item.InnerText;
                                 break;
+                            case "image":
+                                XmlNodeList imgList = channel_item.ChildNodes;
+                                foreach(XmlNode imgItem in imgList)
+                                {
+                                    switch(imgItem.Name)
+                                    {
+                                        case "url":
+                                            imageChanel.imgURL = imgItem.InnerText;
+                                            break;
+                                        case "link":
+                                            imageChanel.imgLink = imgItem.InnerText;
+                                            break;
+                                        case "title":
+                                            imageChanel.imgTitle = imgItem.InnerText;
+                                            break;
+                                    }
+                                }
+                                break;
                             case "item":
-                                XmlNodeList itemsList = channel_item.ChildNodes;
+                                XmlNodeList itemsList = channel_item.ChildNodes;                                
                                 articles[count] = new RssItem();
                                 foreach(XmlNode item in itemsList)
                                     switch(item.Name)
@@ -103,6 +123,9 @@ namespace RssReader
                     writer.WriteLine("</head>");
                     writer.WriteLine("<body>");
 
+                    writer.WriteLine("<font size=\"2\" face=\"Verdana\">");
+                    writer.WriteLine("<a href=\"" + imageChanel.imgLink + "\">");
+                    writer.WriteLine("<img src=\"" + imageChanel.imgURL + "\" border=0></a>  ");
                     writer.WriteLine("<h3>" + rssChannel.title + "</h3></a>");
 
                     writer.WriteLine("<table width=\"80%\" align=\"center\" border=1>");
@@ -111,7 +134,7 @@ namespace RssReader
                         writer.WriteLine("<tr>");
                         writer.WriteLine("<td>");
                         writer.WriteLine("<br>  <a href=\"" + article.link + "\"><b>" + article.title + "</b></a>");
-                        writer.WriteLine("& (" + article.pubData + ")<br><br>");
+                        writer.WriteLine("(" + article.pubData + ")<br><br>");
                         writer.WriteLine("<table width=\"95%\" align=\"center\" border=0>");
                         writer.WriteLine("<tr><td>");
                         writer.WriteLine(article.description);
